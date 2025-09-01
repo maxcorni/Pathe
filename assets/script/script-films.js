@@ -276,7 +276,7 @@ selecteurLangue.addEventListener('change', filtrerFilms);
 champRecherche.addEventListener('input', filtrerFilms);
 
 // Chargement des données et initialisation
-fetch('assets/json/films.json')
+fetch('../assets/json/films.json')
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
