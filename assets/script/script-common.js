@@ -172,11 +172,11 @@ class AffichageSeance {
         const contenuFilm = document.querySelector('.movie-content');
         
         if (salle) {
-            salle.innerHTML = `Salle ${this.seance.salle} ${this.seance.handicap ? "<img src='/assets/images/pictos/desactive-black.png' style='width: 16px; height: 16px' alt='Picto d'une personne en chaise roulante'>" : ""}`;
+            salle.innerHTML = `Salle ${this.seance.salle} ${this.seance.handicap ? "<img src='assets/images/pictos/desactive-black.png' style='width: 16px; height: 16px' alt='Picto d'une personne en chaise roulante'>" : ""}`;
         }
 
         if (barreLatérale) {
-            barreLatérale.style.backgroundImage = `linear-gradient(rgba(28,33,41,0.83), rgba(28,33,41,0.83)), url('/assets/images/films/${this.donneesFilm.image}')`;
+            barreLatérale.style.backgroundImage = `linear-gradient(rgba(28,33,41,0.83), rgba(28,33,41,0.83)), url('assets/images/films/${this.donneesFilm.image}')`;
         }
         
         if (contenuFilm) {
@@ -297,7 +297,7 @@ class ChargeurDonneesFilms {
      */
     static async chargerDonneesFilms() {
         try {
-            const reponse = await fetch('/assets/json/films.json');
+            const reponse = await fetch('assets/json/films.json');
             if (!reponse.ok) {
                 throw new Error(`Erreur HTTP! statut: ${reponse.status}`);
             }
@@ -315,7 +315,7 @@ class ChargeurDonneesFilms {
      */
     static async chargerDonneesSnacks() {
         try {
-            const reponse = await fetch('/assets/json/snack.json');
+            const reponse = await fetch('assets/json/snack.json');
             if (!reponse.ok) {
                 throw new Error(`Erreur HTTP! statut: ${reponse.status}`);
             }

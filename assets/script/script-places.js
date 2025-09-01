@@ -161,7 +161,7 @@ function mettreAJourBoutonContinuer() {
         if (placesSelectionnees.length === 0) {
             boutonContinuer.textContent = 'Sélectionnez vos places';
         } else {
-            boutonContinuer.innerHTML = `Réserver mes : ${placesSelectionnees.length} place${placesSelectionnees.length > 1 ? 's' : ''} <img src="/assets/images/pictos/fleche-droite.png" alt="Picto flèche vers la droite">`;
+            boutonContinuer.innerHTML = `Réserver mes : ${placesSelectionnees.length} place${placesSelectionnees.length > 1 ? 's' : ''} <img src="../assets/images/pictos/fleche-droite.png" alt="Picto flèche vers la droite">`;
         }
     }
 
