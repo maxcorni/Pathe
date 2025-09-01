@@ -1,0 +1,22 @@
+@use "../../abstracts/index" as *;
+@use "sass:color";
+
+.btn-primary {
+    @extend %btn-base;
+    background: $primary;
+    color: $white;
+    @include font($font-medium, $font-size-low);
+    transition: background 0.2s;
+    border-radius: 0.6rem;
+    gap: $spacing-xs;
+    @include interactive-states($primary);
+
+    .icon {
+        width: 1.1rem;
+        height: 1.1rem;
+        color: $white;
+    }
+    .r180 {
+        transform: rotate(180deg);
+    }
+}

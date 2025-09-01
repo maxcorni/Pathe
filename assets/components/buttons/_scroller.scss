@@ -1,0 +1,19 @@
+@use "../../abstracts/index" as *;
+
+#scroller {
+    position: fixed;
+    bottom: $spacing-high;
+    right: 5%;
+    width: 4rem;
+    height: 4rem;
+    z-index: z-index('fixed');
+    @include interactive-states($secondary);
+    border-radius: 50%;
+    @include flex(row, center, center);
+
+    .fleche-top {
+        transform: rotate(270deg);
+        width: $spacing-high;
+        height: $spacing-high;
+    }
+}

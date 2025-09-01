@@ -1,0 +1,75 @@
+@use "../abstracts/index" as *;
+
+.billet {
+    width: 30rem;
+    background-image: linear-gradient(alpha-color($white, 0.5), alpha-color($white, 0.5)), url("../assets/images/logo/cine-pathe.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 0;
+    box-shadow: 0 8px 32px alpha-color($black, 0.3);
+    overflow: hidden;
+    cursor: pointer;
+    @include interactive-states($white, 5%, 10%);
+
+    .ticket {
+        width: 100%;
+        @include flex(column, start, center);
+        gap: $spacing-high;
+        margin: $spacing-high auto;
+        width: 80%;
+        cursor: pointer;
+        border-radius: $spacing-xs;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+
+        &:focus {
+            outline: 2px solid $secondary;
+            outline-offset: 2px;
+        }
+
+        .ticket-header {
+            padding: $spacing-low;
+            @include font($font-bold, 2.3rem);
+        }
+
+        .ticket-body {
+            @include flex(column, start, start);
+            padding: $spacing-low;
+            gap: $spacing-mid;
+
+            .movie-title {
+                @include font($font-extrabold, 2.1rem);
+                text-transform: uppercase;
+            }
+
+            .ticket-info {
+                p {
+                    padding: 0.3rem;
+                    @include font($font-bold, 1.6rem);
+                    text-align: left;
+                }
+            }
+        }
+
+        .qr-section {
+            @include flex(column, end, center);
+            width: 100%;
+
+            .qr-code {
+                .qr-image {
+                    width: 10rem;
+                    height: 10rem;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+}
+
+.message {
+    margin: $spacing-xl auto;
+}

@@ -1,0 +1,62 @@
+@use "../abstracts/index" as *;
+
+.ticket-selection {
+    @include responsive-container(95%, 85%, 80%);
+    flex: 2;
+
+    .cinepass-promo {
+        position: relative;
+        @include flex(row, center, space-between);
+        padding: 1.5rem 4rem;
+        background-color: $secondary;
+        border-radius: 1.5rem;
+        @include interactive-states($secondary, 5%, 10%);
+
+        .cinepass-logo {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -3rem;
+            width: 6.6rem;
+            height: auto;
+        }
+
+        span {
+            @include font($font-bold, 1.2rem);
+            color: $black;
+        }
+    }
+
+    .ticket-types {
+        @include flex(column, center, space-between);
+        padding: 1.5rem 4rem;
+        background-color: $white;
+        border-radius: 1.5rem;
+        gap: 1rem;
+        @include card-base();
+
+        .ticket-type {
+            @include flex(row, center, space-between);
+            width: 100%;
+            padding: 0.5rem;
+
+            .ticket-label {
+                @include font($font-bold, 1.3rem);
+                color: $black;
+            }
+
+            .ticket-controls {
+                @include quantity-controls();
+
+                .ticket-count {
+                    @include font($font-extrabold, 1.9rem);
+                    color: $black;
+                }
+            }
+        }
+    }
+
+    .modify-seats {
+        margin: 2rem 0;
+    }
+}

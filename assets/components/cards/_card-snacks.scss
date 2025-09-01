@@ -1,0 +1,37 @@
+@use "../../abstracts/index" as *;
+
+.snacks-card {
+    @include image-card(10rem, 10rem);
+    width: 18rem;
+    border-radius: 0.3rem;
+    border: solid 1px $light-gray;
+    box-shadow: 0 2px 8px alpha-color($black, 0.08);
+
+    .snacks-info {
+        @include flex(column, center, start);
+        
+        .snacks-name {
+            @include font($font-regular, $font-size-mid);
+            padding-bottom: 0.3rem;
+            text-align: center;
+        }
+        
+        .snacks-texte {
+            @include flex(row, center, space-between);
+            width: 80%;
+            padding-bottom: $spacing-xs;
+
+            .snacks-price {
+                @include font($font-bold, $font-size-mid);
+            }
+            
+            .snacks-controls {
+                @include quantity-controls($spacing-xs);
+
+                .snack-count {
+                    @include font($font-extrabold, $font-size-mid);
+                }
+            }
+        }
+    }
+}

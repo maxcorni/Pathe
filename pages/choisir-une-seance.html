@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scéances des films actuellement au cinéma - Pathé</title>
+	<link rel="icon" type="image/png" href="../favicon.png">
+	<meta name="description" content="Consultez les séances des films actuellement à l'affiche dans les cinémas Pathé, filtrez par genre, salle ou langue, et réservez vos places facilement.">
+	<link rel="stylesheet" href="../fonts/styles.css">
+	<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<header class="bg-header">
+	<nav>
+		<ul class="mainnav">
+			<li><a href="../index.html" title="Vers la page: home">Accueil</a></li>
+			<li><img src="../assets/images/pictos/fleche.png" alt="Picto d'un chevron vers la droite"
+					class="icon"></li>
+			<li><a href="choisir-une-seance.html" title="Vers la page: choix d'une scéance"
+					class="active">Choisir une scéance</a></li>
+		</ul>
+		<div class="subnav">
+			<a href="../index.html" title="Retour à la page home"
+				class="btn-primary"><img src="../assets/images/pictos/fleche.png"
+					alt="Picto d'un chevron vers la gauche" class="icon r180">Retour</a>
+		</div>
+	</nav>
+</header>
+<main>
+	<div class="container">
+		<h1>Films à l'affiche</h1>
+		<section class="filter">
+			<div class="filter-group">
+				<select id="genre-select">
+					<option value disabled selected>Genres</option>
+					<option value>Tous</option>
+					<!-- Les options seront générées dynamiquement en JS -->
+				</select>
+				<img src="../assets/images/pictos/fleche.png" alt="Picto d'un chevron vers le bas" class="picto fleche">
+			</div>
+
+			<!-- Filtre par type de salle -->
+			<div class="filter-group">
+				<select id="salle-select">
+					<option value disabled selected>Salles</option>
+					<option value>Toutes</option>
+					<option value="imax">IMAX</option>
+					<option value="4k">4K</option>
+					<option value="4D">4D</option>
+				</select>
+				<img src="../assets/images/pictos/fleche.png" alt="Picto d'un chevron vers le bas" class="picto fleche">
+			</div>
+
+			<!-- Filtre par langue -->
+			<div class="filter-group">
+				<select id="langue-select">
+					<option value disabled selected>Langues</option>
+					<option value>Toutes</option>
+					<option value="vf">VF</option>
+					<option value="vost">VOSTFR</option>
+				</select>
+				<img src="../assets/images/pictos/fleche.png" alt="Picto d'un chevron vers le bas" class="picto fleche">
+			</div>
+
+			<!-- Barre de recherche -->
+			<div class="filter-group">
+				<img src="../assets/images/pictos/loupe.png" alt="Picto d'une loupe" class="picto loupe">
+				<input type="text" id="search-input" placeholder="Rechercher ...">
+			</div>
+		</section>
+
+		<section class="films-section">
+			<div id="films-container">
+				<!-- Les films seront affichés ici par JavaScript -->
+			</div>
+		</section>
+		<button class="btn-icon" id="scroller"><img src="../assets/images/pictos/fleche.png" alt="Picto d'un chevron vers le haut" class="fleche-top"></button>
+	</div>
+</main>
+<script src="../assets/script/script-films.js"></script>
+<script src="../assets/script/script-animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+// Fichier pour toutes les fonctions utilitaires
+// (contenu ci-dessus)
+
+@use "sass:math";
+@use "sass:color";
+@use "colors" as *;
+@use "variables" as *;
+
+// Génération de couleurs avec transparence
+@function alpha-color($color, $alpha: 0.5) {
+    @return rgba($color, $alpha);
+}
+
+// Z-index management
+@function z-index($layer) {
+    $z-indexes: (
+        'base': 1,
+        'dropdown': 100,
+        'sticky': 200,
+        'fixed': 300,
+        'modal-backdrop': 400,
+        'modal': 500,
+    );
+    
+    @return map-get($z-indexes, $layer);
+}

@@ -1,0 +1,19 @@
+@use "../../abstracts/index" as *;
+@use "sass:color";
+
+.btn-secondary {
+    @extend %btn-base;
+    background: $secondary;
+    color: $black;
+    @include font($font-medium, inherit);
+    transition: background 0.2s;
+    border-radius: 1.5rem;
+    @include interactive-states($secondary);
+    
+    .icon {
+        width: 2.1rem;
+        height: 2.1rem;
+        margin-right: 1.8rem;
+        transform: rotate(40deg);
+    }
+}

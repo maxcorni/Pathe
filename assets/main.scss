@@ -1,0 +1,48 @@
+// Import des variables et mixins
+@use "abstracts/index" as *;
+
+// Import des bases
+@use "base/reset";
+@use "base/reset-typography";
+@use "base/global";
+
+// Import des layouts
+@use "layout/header";
+@use "layout/side-bar";
+@use "layout/total";
+@use "layout/filter";
+@use "layout/cinema-hall";
+@use "layout/tickets-selections";
+@use "layout/snacks-selections";
+@use "layout/paiement-wrapper";
+// Import des composants
+// Import buttons
+@use "components/buttons/primary";
+@use "components/buttons/secondary";
+@use "components/buttons/continue";
+@use "components/buttons/icon";
+@use "components/buttons/scroller";
+
+// Import cards
+@use "components/cards/card-film";
+@use "components/cards/card-seance";
+@use "components/cards/card-snacks";
+
+// Import modals
+@use "components/modals/modal";
+
+// Import autres composants
+@use "components/carousel";
+@use "components/video-popup";
+@use "components/billet";
+
+
+// Import des pages spécifiques
+@use "pages/home";
+@use "pages/vos-places";
+@use "pages/snacks";
+@use "pages/paiement";
+@use "pages/confirmation";
+@use "pages/choisir-seance";
+@use "pages/tarifs";
+

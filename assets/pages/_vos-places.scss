@@ -1,0 +1,14 @@
+@use "../abstracts/index" as *;
+
+// Styles spécifiques à la page vos places
+
+.nb-libres {
+    @include font($font-regular, $font-size-mid);
+    color: $light-gray;
+    margin-bottom: $spacing-low;
+}
+
+.continue-cta {
+    width: 100%;
+}
+

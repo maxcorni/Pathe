@@ -1,0 +1,117 @@
+@use "../../abstracts/index" as *;
+
+.film-card {
+    position: relative;
+    width: 100%;
+    border-radius: $spacing-low;
+    overflow: hidden;
+    height: 100%;
+    margin: $gap 0;
+    padding-bottom: $gap;
+
+    .film-header {
+        @include flex(row, start, start);
+        padding: $spacing-low 0;
+        gap: $spacing-low;
+
+        .film-image-container {
+            position: relative;
+            width: 6rem;
+            height: 8rem;
+            flex-shrink: 0;
+
+            .film-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: $spacing-xs;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                &:hover,
+                &:focus {
+                    outline: 2px solid $secondary;
+                }
+            }
+        }
+
+        .film-img {
+            width: 6rem;
+            height: 8rem;
+            object-fit: cover;
+            border-radius: $spacing-xs;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover,
+            &:focus {
+                outline: 2px solid $secondary;
+            }
+        }
+
+        .film-texte {
+            @include flex(column, start, start);
+            flex: 1;
+
+            .film-mention {
+                @include flex(row, start, start);
+                gap: $spacing-xs;
+                margin-bottom: $spacing-xs;
+
+                .frisson,
+                .nouveau {
+                    @include font($font-bold, $spacing-low);
+                    padding: 0.2rem $spacing-xs;
+                    border-radius: 0.3rem;
+                    text-transform: capitalize;
+                }
+
+                .frisson {
+                    background-color: $white;
+                    color: $black;
+                }
+
+                .nouveau {
+                    background-color: $red;
+                    color: $white;
+                }
+            }
+
+            h2 {
+                @include font($font-bold, $font-size-base);
+            }
+
+            .film-information {
+                @include flex(row, center, space-between);
+                gap: $spacing-xs;
+                flex-wrap: wrap;
+                color: $light-gray;
+                @include font($font-regular, $font-size-low);
+
+                .badge {
+                    color: $white;
+                    padding: 0.2rem $spacing-xs;
+                    border-radius: 0.3rem;
+                    font-size: 0.8rem;
+                    @include flex(row, center, center);
+                    gap: $spacing-xs;
+
+                    .badge-icon {
+                        background-color: $light-gray;
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        @include flex(row, center, center);
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+    .seances-list {
+        padding: 0;
+        @include flex(row, start, start);
+        flex-wrap: wrap;
+        gap: $spacing-xs;
+    }
+}

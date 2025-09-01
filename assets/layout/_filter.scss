@@ -1,0 +1,82 @@
+@use "../abstracts/index" as *;
+
+.filter {
+    @include flex(row, center, start);
+    width: 100%;
+    padding: 1.5rem 0;
+    gap: 2rem;
+
+    .filter-group {
+        position: relative;
+
+        .picto {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .fleche {
+            right: 1rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+        .loupe {
+            left: 1rem;
+            width: 2rem;
+            height: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        select,
+        input {
+            @include flex(row, center, center);
+            padding: 1rem 5rem 1rem 1rem;
+            @include font($font-regular, 1.6rem);
+            border-radius: 0.5rem;
+            border: 1px solid $black;
+            background-color: $primary;
+            color: $white;
+            cursor: pointer;
+            appearance: none;
+            @include interactive-states($primary, 5%, 10%);
+        }
+        
+        input {
+            padding-left: 4rem;
+        }
+    }
+    
+    .filter-title {
+        @include font($font-bold, 2.4rem);
+        color: $black;
+    }
+
+    .filter-options {
+        @include flex(row, center, start);
+        gap: 1.5rem;
+
+        .option {
+            @include font($font-regular, 1.6rem);
+            color: $black;
+            cursor: pointer;
+            @include interactive-states(transparent);
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+
+    @include mobile-tablet {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+
+        .filter-options {
+            flex-wrap: wrap;
+        }
+    }
+}

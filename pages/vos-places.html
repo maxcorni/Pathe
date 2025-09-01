@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Réservez vos places - Cinémas Pathé</title>
+	<link rel="icon" type="image/png" href="../favicon.png">
+	<meta name="description"
+		content="Réservez vos places en ligne pour les films actuellement à l'affiche dans les cinémas Pathé.">
+	<link rel="stylesheet" href="../fonts/styles.css">
+	<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<header class="dark">
+	<nav>
+		<ul class="mainnav">
+			<li><a href="../index.html" title="Vers la page: home">Accueil</a></li>
+			<li><img src="../assets/images/pictos/fleche.png" alt="Picto d'un chevron vers la droite"
+					class="icon"></li>
+			<li><a href="choisir-une-seance.html"
+					title="Vers la page: choix d'une scéance">Choisir une scéance</a></li>
+			<li><img src="../assets/images/pictos/fleche.png" alt="Picto d'un chevron vers la droite"
+					class="icon"></li>
+			<li><a href="vos-places.html" title="Vers la page: vos places"
+					class="active">Vos places</a></li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<div class="screen-spliter">
+		<aside class="side-bar">
+			<div class="movie-content">
+				<!-- Contenue en js -->
+			</div>
+		</aside>
+
+		<section class="main-content">
+			<div class="row">
+				<div class="salle"></div>
+				<div class="subnav">
+					<a href="choisir-une-seance.html"
+						title="Retour à la page choix d'une scéance"
+						class="btn-primary"><img src="../assets/images/pictos/fleche.png"
+							alt="Picto d'un chevron vers la gauche" class="icon r180">Retour</a>
+				</div>
+			</div>
+			<div>
+				<h1>Sélectionnez vos places</h1>
+				<p class="nb-libres"></p>
+			</div>
+
+			<div class="cinema-hall">
+				<div class="seats-container">
+					<!-- Les sièges seront générés par JavaScript -->
+				</div>
+			</div>
+			
+			<div class="legend-status">
+				<div class="legend">
+					<div class="legend-item">
+						<div class="seat selected"></div>
+						<span>Mes places</span>
+					</div>
+					<div class="legend-item">
+						<div class="seat available"></div>
+						<span>Places libres</span>
+					</div>
+
+					<div class="legend-item">
+						<div class="seat unavailable"></div>
+						<span>Places non disponibles</span>
+					</div>
+				</div>
+				<p class="info-box">
+					Aucune place sélectionnée.
+					<!-- Les sièges selectionés sont affichées par JavaScript -->
+				</p>
+			</div>
+			<div class="continue-cta">
+				<button class="btn-continue" disabled>
+					Sélectionnez vos places
+				</button>
+			</div>
+		</section>
+	</div>
+
+</main>
+<script src="../assets/script/script-common.js"></script>
+<script src="../assets/script/script-places.js"></script>
+<script src="../assets/script/script-animations.js"></script>
+</body>
+</html>

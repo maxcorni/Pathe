@@ -1,0 +1,72 @@
+@use "../abstracts/index" as *;
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8rem;
+    z-index: z-index('dropdown');
+
+    nav {
+        @include flex(row, center, space-between);
+        width: 90%;
+        margin: 0 5%;
+        height: 100%;
+        
+        .mainnav {
+            @include flex(row, center, start);
+            gap: $spacing-xs;
+            
+            li {
+                a {
+                    @include font($font-medium, $font-size-low);
+                    color: $white;
+                    text-decoration: none;
+
+                    &.active {
+                        color: $secondary;
+                    }
+                }
+
+                .icon {
+                    width: 0.9rem;
+                    height: 0.9rem;
+                }
+            }
+        }
+    }
+}
+
+.bg-header {
+    background-color: $bg;
+}
+
+.dark {
+    color: $black;
+}
+
+@include tablet {
+    nav {
+        .mainnav {
+            width: 25%;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+@include mobile {
+    header {
+        position: sticky;
+        z-index: z-index('modal');
+        background-color: $primary;
+        height: 4rem;
+        
+        nav {
+            .mainnav {
+                width: 100%;
+                flex-wrap: nowrap;
+            }
+        }
+    }
+}

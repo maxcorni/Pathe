@@ -1,0 +1,29 @@
+@use "../../abstracts/index" as *;
+
+.btn-icon {
+    @include flex(row, center, center);
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    color: $black;
+    background-color: $secondary;
+    transition: background 0.2s;
+    border-radius: 100%;
+    @include interactive-states($secondary);
+    
+    img {
+        width: 2.1rem;
+        height: 2.1rem;
+    }
+}
+
+.small {
+    width: $spacing-high;
+    height: $spacing-high;
+
+    img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+ 

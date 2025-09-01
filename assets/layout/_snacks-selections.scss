@@ -1,0 +1,42 @@
+@use "../abstracts/index" as *;
+
+
+.snacks-selection {
+    @include responsive-container(90%, 85%, 80%);
+    flex: 2;
+    overflow-y: auto;
+
+    .snacks-categorie {
+        @include flex(column, start, start);
+        margin-bottom: $spacing-high;
+        width: 100%;
+
+        .categorie-title {
+            @include font($font-bold, $font-size-mid);
+            color: $black;
+            margin: $spacing-mid 0 $spacing-low 0;
+        }
+
+        .snacks-grid {
+            @include responsive-grid(1, 2, 3, $spacing-mid);
+            @include flex(row, start, start);
+            flex-wrap: wrap;
+        }
+    }
+
+    @include mobile {
+        .snacks-categorie {
+            align-items: center;
+
+            .categorie-title {
+                @include font($font-bold, $font-size-low);
+                margin: $spacing-low 0 $spacing-xs 0;
+            }
+
+            .snacks-grid {
+                justify-content: center;
+                gap: $spacing-low;
+            }
+        }
+    }
+}

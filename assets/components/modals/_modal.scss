@@ -1,0 +1,95 @@
+@use "../../abstracts/index" as *;
+
+.booking-details-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: z-index('modal');
+    @include flex(row, center, center);
+
+    .modal-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: alpha-color($black, 0.8);
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+        @include modal-style();
+        background: alpha-color($white, 0.95);
+        width: 90%;
+        max-width: 500px;
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+        backdrop-filter: blur(10px);
+        border: 1px solid alpha-color($secondary, 0.3);
+
+        .close-modal {
+            position: absolute;
+            top: $spacing-low;
+            right: $spacing-low;
+            background: none;
+            border: none;
+            @include font($font-regular, $font-size-base);
+            color: $light-gray;
+            cursor: pointer;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+
+        h3 {
+            color: $black;
+            @include font($font-bold, $font-size-h4);
+            margin-bottom: $spacing-mid;
+            text-align: center;
+            margin-top: $spacing-low;
+        }
+
+        h4 {
+            color: $black;
+            @include font($font-bold, $font-size-base);
+            margin-bottom: $spacing-low;
+            margin-top: $spacing-mid;
+        }
+
+        .panier-section, .booking-info {
+            .info-row, .summary-line {
+                @include flex(row, center, space-between);
+                padding: $spacing-xs 0;
+                border-bottom: 1px solid alpha-color($black, 0.1);
+                color: $black;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                span:first-child {
+                    color: $light-gray;
+                }
+
+                span:last-child {
+                    @include font($font-bold, inherit);
+                }
+            }
+        }
+
+        .paiement-method {
+            color: $black;
+            @include font($font-bold, inherit);
+            padding: $spacing-xs $spacing-low;
+            background: alpha-color($secondary, 0.1);
+            border-radius: 0.3rem;
+            text-align: center;
+            border: 1px solid alpha-color($secondary, 0.3);
+        }
+    }
+}

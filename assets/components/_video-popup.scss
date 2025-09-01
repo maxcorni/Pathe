@@ -1,0 +1,78 @@
+@use "../abstracts/index" as *;
+
+.popup-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: alpha-color($black, 0.8);
+    @include flex(row, center, center);
+    z-index: z-index('modal');
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    
+    &.active,
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .popup {
+        position: relative;
+        max-width: 90vw;
+        max-height: 80vh;
+        background: $black;
+        border-radius: $spacing-low;
+        overflow: hidden;
+        transform: scale(0.8);
+        transition: transform 0.3s ease;
+
+        iframe {
+            width: 800px;
+            height: 450px;
+            max-width: 90vw;
+            max-height: 80vh;
+            border: none;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            @include font($font-regular, $font-size-base);
+            padding: $spacing-low;
+            background: alpha-color($black, 0.8);
+            border: none;
+            color: $white;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            @include flex(row, center, center);
+            transition: all 0.3s ease;
+            z-index: 10;
+
+            &:hover {
+                background: $secondary;
+                color: $black;
+            }
+        }
+    }
+
+    &.active .popup,
+    &.visible .popup {
+        transform: scale(1);
+    }
+}
+
+@include mobile {
+    .popup-video .popup {
+        iframe {
+            width: 90vw;
+            height: calc(90vw * 0.5625); // Ratio 16:9
+        }
+    }
+}
+

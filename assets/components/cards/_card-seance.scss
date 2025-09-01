@@ -1,0 +1,55 @@
+@use "../../abstracts/index" as *;
+
+.seance-card {
+    @include flex(column, start, end);
+    gap: 0.5rem;
+    background-color: $black;
+    border: 1px solid $light-gray;
+    border-radius: 0.5rem;
+    padding: 1.2rem;
+    @include font($font-regular, 0.8rem);
+    color: $white;
+    width: 16rem;
+    height: 10.5rem;
+    @include interactive-states($black, 5%, 10%);
+
+    .salle-details {
+        @include flex(row, start, start);
+        gap: 0.5rem;
+        width: 100%;
+        
+        .salle-type {
+            color: $white;
+            padding: 0.1rem 0.3rem;
+            border-radius: 0.2rem;
+            @include font($font-bold, 1.6rem);
+        }
+    }
+
+    .seance-details {
+        @include flex(row, center, space-between);
+        width: 100%;
+        
+        .seance-info {
+            @include flex(row, baseline, space-between);
+            gap: 0.2rem;
+
+            .horaire {
+                @include font($font-bold, $font-size-base);
+                color: $white;
+            }
+
+            .langue {
+                color: $white;
+                padding: 0.1rem 0.3rem;
+                border-radius: 0.2rem;
+                @include font($font-regular, $font-size-low);
+            }
+        }
+
+        .handicap {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+}

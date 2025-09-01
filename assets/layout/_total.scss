@@ -1,0 +1,69 @@
+@use "../abstracts/index" as *;
+
+.total-section {
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    @include flex(column, start, space-between);
+    background-color: alpha-color($white, 0.9);
+
+    h3 {
+        padding: $spacing-mid 3.75rem;
+        @include font($font-bold, $font-size-mid);
+        color: $black;
+        margin-bottom: $spacing-low;
+    }
+
+    .summary {
+        @include flex(column, start, space-between);
+        width: 70%;
+        gap: $spacing-low;
+        margin-bottom: $spacing-low;
+        padding: $spacing-mid 3.75rem;
+        max-height: 15rem;
+        overflow-y: auto;
+
+        .summary-line {
+            @include flex(row, center, space-between);
+            width: 100%;
+            
+            p {
+                @include font($font-extrabold, $font-size-mid);
+                color: $black;
+                
+                .medium {
+                    @include font($font-medium, $font-size-mid);
+                }
+            }
+            
+            .snack-total-and-trash {
+                width: fit-content;
+                @include flex(row, center, space-between); 
+                gap: $spacing-low; 
+            }
+        }
+    }
+    
+    .total-cta {
+        @include flex(row, center, space-between);
+        width: 100%;
+        height: 6.7rem;
+        background-color: $tertiary;
+        
+        .total-line {
+            @include flex(row, center, space-between);
+            width: 70%;
+            padding: $spacing-mid 3.75rem;
+            
+            p {
+                @include font($font-bold, $font-size-base);
+                color: $black;
+            }
+        }
+        
+        .btn-continue {
+            width: 30%;
+        }
+    }
+}

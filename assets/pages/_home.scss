@@ -1,0 +1,34 @@
+@use "../abstracts/index" as *;
+
+// Styles spécifiques à la page home
+
+.hero-banner-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    @include flex(row, center, start);
+}
+
+.hero-banner-logo {
+    position: absolute;
+    top: -25rem;
+    left: 0;
+    z-index: z-index('dropdown');
+}
+
+.hero-banner-text {
+    color: $white;
+    margin-bottom: $spacing-high;
+    
+    h1 {
+        @include font($font-black, $font-size-h2);
+        text-transform: uppercase;
+        line-height: 1;
+    }
+    
+    h2 {
+        @include font($font-light, $gap);
+        text-transform: uppercase;
+        margin-bottom: $spacing-xl;
+    }
+}

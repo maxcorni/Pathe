@@ -1,0 +1,9 @@
+@use "../abstracts/index" as *;
+
+// Les styles de billet sont maintenant dans layout/_billet.scss
+// Styles spécifiques à la page confirmation uniquement ici
+
+.message{
+    margin: 3rem auto;
+}
+

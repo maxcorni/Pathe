@@ -1,0 +1,186 @@
+@use "../abstracts/index" as *;
+
+.paiement-section {
+    @include responsive-container(95%, 85%, 80%);
+    flex: 2;
+
+    .paiement-options {
+        margin-top: 2rem;
+        @include flex(column, stretch, start);
+        gap: 1.5rem;
+        text-align: left;
+        @include card-base();
+
+        legend {
+            color: $black;
+            @include font($font-bold, $font-size-base);
+            margin-bottom: 1rem;
+        }
+
+        .paiement-option {
+            border: 2px solid $light-gray;
+            appearance: none;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: $white;
+            text-align: left;
+            width: 100%;
+
+            // Styles d'accessibilité
+            &:focus {
+                outline: 2px solid $secondary;
+                outline-offset: 2px;
+            }
+
+            &.active {
+                border-color: $secondary;
+                box-shadow: 0 0 0 1px $secondary;
+            }
+
+            &:hover {
+                border-color: $secondary;
+            }
+
+            .paiement-header {
+                @include flex(row, center, space-between);
+                margin-bottom: 1rem;
+
+                span {
+                    @include font($font-bold, 1.1rem);
+                    color: $black;
+                }
+
+                .card-icons {
+                    @include flex(row, center, center);
+                    gap: 0.5rem;
+
+                    img {
+                        width: 32px;
+                        height: 20px;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .paiement-form {
+                display: none;
+                margin-top: 1rem;
+
+                .form-group {
+                    margin-bottom: 1rem;
+
+                    label {
+                        display: block;
+                        margin-bottom: 0.5rem;
+                        color: $light-gray;
+                        @include font($font-medium, 1.2rem);
+                    }
+
+                    input {
+                        width: 100%;
+                        padding: 0.75rem;
+                        border: 1px solid $light-gray;
+                        border-radius: 0.3rem;
+                        @include font($font-regular, 1rem);
+                        transition: border-color 0.3s ease;
+
+                        &:focus {
+                            outline: none;
+                            border-color: $secondary;
+                            box-shadow: 0 0 0 2px alpha-color($secondary, 0.1);
+                        }
+
+                        &::placeholder {
+                            color: $light-gray;
+                        }
+                    }
+
+                    .error-message {
+                        color: $red;
+                        @include font($font-medium, 0.8rem);
+                        margin-top: 0.3rem;
+                    }
+                }
+
+                .form-row {
+                    @include flex(row, stretch, start);
+                    gap: 1rem;
+
+                    .form-group {
+                        flex: 1;
+                    }
+                }
+            }
+
+            &.active .paiement-form {
+                display: block;
+            }
+
+            // Google Pay specific styling
+            &[data-paiement="google"] {
+                &.active {
+                    background-color: $white;
+                    border-color: $secondary;
+
+                    .google-pay-form {
+                        display: block;
+                        margin-top: 1rem;
+
+                        .google-pay-button {
+                            @include flex(row, center, center);
+                            width: 100%;
+                            background-color: $black;
+                            color: $white;
+                            border: none;
+                            border-radius: 0.3rem;
+                            padding: 1rem;
+                            @include font($font-bold, 1rem);
+                            cursor: pointer;
+                            gap: 0.5rem;
+                            transition: all 0.3s ease;
+
+                            &:hover,
+                            &:focus {
+                                background-color: $black;
+                                outline: 2px solid $secondary;
+                                outline-offset: 2px;
+                            }
+
+                            .google-logo {
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+                    }
+                }
+                
+                .google-pay-icon {
+                    width: 40px;
+                    height: 24px;
+                    object-fit: contain;
+                }
+            }
+        }   
+    }
+}
+
+@include mobile {
+    .paiement-section {
+        @include responsive-container(95%);
+
+        .paiement-options {
+            .paiement-option {
+                padding: 1rem;
+
+                .paiement-form {
+                    .form-row {
+                        flex-direction: column;
+                        gap: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

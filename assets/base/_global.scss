@@ -1,0 +1,98 @@
+@use "../abstracts/index" as *;
+
+body{
+    background-color: $bg;
+    height: 100vh;
+}
+
+ul{
+    list-style-type: none ;
+}
+
+.container{
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 8rem;
+
+}
+
+.row{
+    @include flex(row, center, space-between);
+    gap: $spacing-high;
+    margin-bottom: $spacing-high;
+    width: 90%;
+    margin: 0 5%;
+}
+
+.col{
+    @include flex(column, stretch, space-between);
+    flex: 1;
+    width: 100%;
+    gap: $spacing-high;
+}
+
+.screen-spliter{
+    @include flex(row, center, space-between);
+    background-color: $white;
+    border-radius: 1rem;
+    height: 100vh;
+
+    .main-content {
+        position: relative;
+        @include flex(column, center, space-between);
+        text-align: center;
+        width: 60%;
+        height: 100%;
+        z-index: 100;
+        color: $black;
+        gap: 1rem;
+
+        .row{
+            @include flex(row, center, space-between);
+            margin: 2.5rem;
+        }
+
+        h2 {
+            @include font($font-bold, 3rem);
+            color: $primary;
+        }
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .screen-spliter {
+        flex-direction: row;
+
+        .main-content {
+            width: 70%;
+        }
+
+        .side-bar {
+            width: 30%;
+        }
+    }   
+}
+
+@media screen and (max-width: 768px) {
+
+    body{
+        height: auto;
+    }
+
+    .screen-spliter {
+        flex-direction: column;
+        overflow-y: auto;
+
+        .main-content {
+            width: 100%;
+            height: auto;
+            overflow-y: unset;
+        }
+
+        .side-bar {
+            width: 100%;
+            height: auto;
+        }
+    }   
+}
